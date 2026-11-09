@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agent autocar</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1e3a8a">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMWUzYThhIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMGVhNWU5Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJ2aXRyZSIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNiYWU2ZmQiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM2MGE1ZmEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImNhaXNzZSIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNkYmU0ZjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNvcnBzIj48cmVjdCB4PSIyNiIgeT0iOTYiIHdpZHRoPSIyMDQiIGhlaWdodD0iOTQiIHJ4PSIyNCIvPjwvY2xpcFBhdGg+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiByeD0iNTgiIGZpbGw9InVybCgjYmcpIi8+CiAgPGNpcmNsZSBjeD0iMjE0IiBjeT0iNDAiIHI9IjcwIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIuMDciLz4KICA8IS0tIHJvdXRlIHBvaW50aWxsw6llIHZlcnMgbCfDqXBpbmdsZSAtLT4KICA8cGF0aCBkPSJNMzAgNzYgQyA3MCA0MCwgMTIwIDkyLCAxNzYgNTIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1kYXNoYXJyYXk9IjIgMTIiIG9wYWNpdHk9Ii44NSIvPgogIDwhLS0gcm91dGUgLS0+CiAgPHJlY3QgeD0iMCIgeT0iMjA2IiB3aWR0aD0iMjU2IiBoZWlnaHQ9IjUwIiBmaWxsPSIjMGYxNzJhIiBvcGFjaXR5PSIuMzUiLz4KICA8cmVjdCB4PSIyMiIgeT0iMjI4IiB3aWR0aD0iMzQiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9Ii42Ii8+CiAgPHJlY3QgeD0iODIiIHk9IjIyOCIgd2lkdGg9IjM0IiBoZWlnaHQ9IjYiIHJ4PSIzIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIuNiIvPgogIDxyZWN0IHg9IjE0MiIgeT0iMjI4IiB3aWR0aD0iMzQiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9Ii42Ii8+CiAgPHJlY3QgeD0iMjAyIiB5PSIyMjgiIHdpZHRoPSIzNCIgaGVpZ2h0PSI2IiByeD0iMyIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iLjYiLz4KICA8IS0tIG9tYnJlIC0tPgogIDxlbGxpcHNlIGN4PSIxMjgiIGN5PSIyMDgiIHJ4PSIxMDQiIHJ5PSI5IiBmaWxsPSIjMGYxNzJhIiBvcGFjaXR5PSIuMzUiLz4KICA8IS0tIGF1dG9jYXIgLS0+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2NvcnBzKSI+CiAgICA8cmVjdCB4PSIyNiIgeT0iOTYiIHdpZHRoPSIyMDQiIGhlaWdodD0iOTQiIGZpbGw9InVybCgjY2Fpc3NlKSIvPgogICAgPHJlY3QgeD0iMjYiIHk9IjE1MCIgd2lkdGg9IjIwNCIgaGVpZ2h0PSIxNCIgZmlsbD0iI2Y1OWUwYiIvPgogICAgPHJlY3QgeD0iMjYiIHk9IjE2NCIgd2lkdGg9IjIwNCIgaGVpZ2h0PSIyNiIgZmlsbD0iI2NiZDVlMSIvPgogIDwvZz4KICA8ZyBmaWxsPSJ1cmwoI3ZpdHJlKSI+CiAgICA8cmVjdCB4PSI0MiIgeT0iMTA4IiB3aWR0aD0iMzAiIGhlaWdodD0iMzYiIHJ4PSI3Ii8+CiAgICA8cmVjdCB4PSI3OCIgeT0iMTA4IiB3aWR0aD0iMzAiIGhlaWdodD0iMzYiIHJ4PSI3Ii8+CiAgICA8cmVjdCB4PSIxMTQiIHk9IjEwOCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjM2IiByeD0iNyIvPgogICAgPHJlY3QgeD0iMTUwIiB5PSIxMDgiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzNiIgcng9IjciLz4KICAgIDxwYXRoIGQ9Ik0xODggMTA4IEgyMDYgUTIyMiAxMDggMjIyIDEyNCBWMTQ0IEgxODggWiIvPgogIDwvZz4KICA8cmVjdCB4PSIyMTUiIHk9IjE1NiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjkiIHJ4PSI0IiBmaWxsPSIjZmRlNjhhIi8+CiAgPHJlY3QgeD0iMjYiIHk9IjE3NyIgd2lkdGg9IjkiIGhlaWdodD0iNyIgcng9IjMiIGZpbGw9IiNlZjQ0NDQiLz4KICA8IS0tIHJvdWVzIC0tPgogIDxnPgogICAgPGNpcmNsZSBjeD0iNzgiIGN5PSIxOTAiIHI9IjI1IiBmaWxsPSIjMGYxNzJhIi8+PGNpcmNsZSBjeD0iNzgiIGN5PSIxOTAiIHI9IjE3IiBmaWxsPSIjMWYyOTM3Ii8+PGNpcmNsZSBjeD0iNzgiIGN5PSIxOTAiIHI9IjgiIGZpbGw9IiNlMmU4ZjAiLz4KICAgIDxjaXJjbGUgY3g9IjE4MCIgY3k9IjE5MCIgcj0iMjUiIGZpbGw9IiMwZjE3MmEiLz48Y2lyY2xlIGN4PSIxODAiIGN5PSIxOTAiIHI9IjE3IiBmaWxsPSIjMWYyOTM3Ii8+PGNpcmNsZSBjeD0iMTgwIiBjeT0iMTkwIiByPSI4IiBmaWxsPSIjZTJlOGYwIi8+CiAgPC9nPgogIDwhLS0gw6lwaW5nbGUgZGUgZGVzdGluYXRpb24gLS0+CiAgPHBhdGggZD0iTTE5NiA5OCBDIDE3OCA3OCwgMTY4IDY4LCAxNjggNTQgYSAyOCAyOCAwIDEgMSA1NiAwIEMgMjI0IDY4LCAyMTQgNzgsIDE5NiA5OCBaIiBmaWxsPSIjZjk3MzE2IiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxjaXJjbGUgY3g9IjE5NiIgY3k9IjU0IiByPSIxMCIgZmlsbD0iI2ZmZmZmZiIvPgo8L3N2Zz4K">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root{--bg:#f4f6f9;--card:#fff;--tx:#14181f;--mut:#5b6472;--bd:#dde1e7;--c:#2563eb;--w:#f59e0b;--p:#16a34a;--bad:#dc2626;--soft:#e8f5ec;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1318;--card:#1a2029;--tx:#eef1f5;--mut:#9aa4b2;--bd:#2c3440;--c:#60a5fa;--w:#fbbf24;--p:#4ade80;--bad:#f87171;--soft:#17301f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1318;--card:#1a2029;--tx:#eef1f5;--mut:#9aa4b2;--bd:#2c3440;--c:#60a5fa;--w:#fbbf24;--p:#4ade80;--bad:#f87171;--soft:#17301f;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:760px;margin:0 auto;padding:12px}
+h1{font-size:20px;margin:4px 0 10px}h2{font-size:16px;margin:0 0 8px}
+.tabs{display:flex;gap:6px;margin-bottom:10px}
+.tabs button{flex:1;padding:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:10px;font-size:15px;cursor:pointer}
+.tabs button.on{background:var(--c);color:#fff;border-color:var(--c)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px;margin-bottom:10px}
+.g{margin:10px 0}.g .top{display:flex;justify-content:space-between;font-size:14px}.g .top b{font-size:15px}
+.bar{height:14px;background:var(--bd);border-radius:8px;overflow:hidden}.bar i{display:block;height:100%}
+.mut{color:var(--mut);font-size:13px}
+.tl{position:relative;height:30px;border-radius:8px;background:var(--soft);overflow:hidden;margin-top:6px}
+.tl i{position:absolute;top:0;bottom:0}.tl .now{width:2px;background:var(--bad)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--mut)}
+.row{display:flex;gap:6px;flex-wrap:wrap;align-items:end;margin:6px 0}
+label{display:flex;flex-direction:column;font-size:12px;color:var(--mut);gap:2px}
+input,select{padding:8px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);font-size:15px;max-width:100%}
+input[type=number]{width:70px}
+.btn{padding:9px 14px;border:0;border-radius:8px;background:var(--c);color:#fff;font-size:15px;cursor:pointer}
+.btn.s{background:var(--bd);color:var(--tx);padding:4px 9px;font-size:13px}
+.li{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--bd);font-size:14px;gap:8px}
+.al{background:color-mix(in srgb,var(--bad) 14%,transparent);border-left:4px solid var(--bad);padding:8px 10px;margin:6px 0;border-radius:6px;font-size:14px}
+.ok{background:color-mix(in srgb,var(--p) 14%,transparent);border-left:4px solid var(--p);padding:8px 10px;margin:6px 0;border-radius:6px;font-size:14px}
+.pl{display:flex;height:34px;border-radius:8px;overflow:hidden;margin:8px 0}
+.pl div{display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;white-space:nowrap;overflow:hidden}
+.st{padding:8px 0;border-bottom:1px solid var(--bd);font-size:14px}
+.hide{display:none}
+#map{height:400px;border-radius:10px;overflow:hidden;z-index:0}
+.nb{background:none;border:0}
+.pin{font-size:20px;line-height:26px;text-align:center}
+.pin.sm{font-size:14px;background:var(--card);border:1px solid var(--bd);border-radius:50%;width:24px;height:24px;line-height:22px}
+.pm{width:30px;height:30px;border-radius:50%;background:var(--p);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4)}
+.wa{background:color-mix(in srgb,var(--w) 20%,transparent);border-left:4px solid var(--w);padding:8px 10px;margin:6px 0;border-radius:6px;font-size:14px}
+.tabs{flex-wrap:wrap}.tabs button{min-width:110px}
+</style>
+</head>
+<body>
+<main>
+<h1><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMWUzYThhIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMGVhNWU5Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJ2aXRyZSIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNiYWU2ZmQiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM2MGE1ZmEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImNhaXNzZSIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNkYmU0ZjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNvcnBzIj48cmVjdCB4PSIyNiIgeT0iOTYiIHdpZHRoPSIyMDQiIGhlaWdodD0iOTQiIHJ4PSIyNCIvPjwvY2xpcFBhdGg+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiByeD0iNTgiIGZpbGw9InVybCgjYmcpIi8+CiAgPGNpcmNsZSBjeD0iMjE0IiBjeT0iNDAiIHI9IjcwIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIuMDciLz4KICA8IS0tIHJvdXRlIHBvaW50aWxsw6llIHZlcnMgbCfDqXBpbmdsZSAtLT4KICA8cGF0aCBkPSJNMzAgNzYgQyA3MCA0MCwgMTIwIDkyLCAxNzYgNTIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1kYXNoYXJyYXk9IjIgMTIiIG9wYWNpdHk9Ii44NSIvPgogIDwhLS0gcm91dGUgLS0+CiAgPHJlY3QgeD0iMCIgeT0iMjA2IiB3aWR0aD0iMjU2IiBoZWlnaHQ9IjUwIiBmaWxsPSIjMGYxNzJhIiBvcGFjaXR5PSIuMzUiLz4KICA8cmVjdCB4PSIyMiIgeT0iMjI4IiB3aWR0aD0iMzQiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9Ii42Ii8+CiAgPHJlY3QgeD0iODIiIHk9IjIyOCIgd2lkdGg9IjM0IiBoZWlnaHQ9IjYiIHJ4PSIzIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIuNiIvPgogIDxyZWN0IHg9IjE0MiIgeT0iMjI4IiB3aWR0aD0iMzQiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9Ii42Ii8+CiAgPHJlY3QgeD0iMjAyIiB5PSIyMjgiIHdpZHRoPSIzNCIgaGVpZ2h0PSI2IiByeD0iMyIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iLjYiLz4KICA8IS0tIG9tYnJlIC0tPgogIDxlbGxpcHNlIGN4PSIxMjgiIGN5PSIyMDgiIHJ4PSIxMDQiIHJ5PSI5IiBmaWxsPSIjMGYxNzJhIiBvcGFjaXR5PSIuMzUiLz4KICA8IS0tIGF1dG9jYXIgLS0+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2NvcnBzKSI+CiAgICA8cmVjdCB4PSIyNiIgeT0iOTYiIHdpZHRoPSIyMDQiIGhlaWdodD0iOTQiIGZpbGw9InVybCgjY2Fpc3NlKSIvPgogICAgPHJlY3QgeD0iMjYiIHk9IjE1MCIgd2lkdGg9IjIwNCIgaGVpZ2h0PSIxNCIgZmlsbD0iI2Y1OWUwYiIvPgogICAgPHJlY3QgeD0iMjYiIHk9IjE2NCIgd2lkdGg9IjIwNCIgaGVpZ2h0PSIyNiIgZmlsbD0iI2NiZDVlMSIvPgogIDwvZz4KICA8ZyBmaWxsPSJ1cmwoI3ZpdHJlKSI+CiAgICA8cmVjdCB4PSI0MiIgeT0iMTA4IiB3aWR0aD0iMzAiIGhlaWdodD0iMzYiIHJ4PSI3Ii8+CiAgICA8cmVjdCB4PSI3OCIgeT0iMTA4IiB3aWR0aD0iMzAiIGhlaWdodD0iMzYiIHJ4PSI3Ii8+CiAgICA8cmVjdCB4PSIxMTQiIHk9IjEwOCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjM2IiByeD0iNyIvPgogICAgPHJlY3QgeD0iMTUwIiB5PSIxMDgiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzNiIgcng9IjciLz4KICAgIDxwYXRoIGQ9Ik0xODggMTA4IEgyMDYgUTIyMiAxMDggMjIyIDEyNCBWMTQ0IEgxODggWiIvPgogIDwvZz4KICA8cmVjdCB4PSIyMTUiIHk9IjE1NiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjkiIHJ4PSI0IiBmaWxsPSIjZmRlNjhhIi8+CiAgPHJlY3QgeD0iMjYiIHk9IjE3NyIgd2lkdGg9IjkiIGhlaWdodD0iNyIgcng9IjMiIGZpbGw9IiNlZjQ0NDQiLz4KICA8IS0tIHJvdWVzIC0tPgogIDxnPgogICAgPGNpcmNsZSBjeD0iNzgiIGN5PSIxOTAiIHI9IjI1IiBmaWxsPSIjMGYxNzJhIi8+PGNpcmNsZSBjeD0iNzgiIGN5PSIxOTAiIHI9IjE3IiBmaWxsPSIjMWYyOTM3Ii8+PGNpcmNsZSBjeD0iNzgiIGN5PSIxOTAiIHI9IjgiIGZpbGw9IiNlMmU4ZjAiLz4KICAgIDxjaXJjbGUgY3g9IjE4MCIgY3k9IjE5MCIgcj0iMjUiIGZpbGw9IiMwZjE3MmEiLz48Y2lyY2xlIGN4PSIxODAiIGN5PSIxOTAiIHI9IjE3IiBmaWxsPSIjMWYyOTM3Ii8+PGNpcmNsZSBjeD0iMTgwIiBjeT0iMTkwIiByPSI4IiBmaWxsPSIjZTJlOGYwIi8+CiAgPC9nPgogIDwhLS0gw6lwaW5nbGUgZGUgZGVzdGluYXRpb24gLS0+CiAgPHBhdGggZD0iTTE5NiA5OCBDIDE3OCA3OCwgMTY4IDY4LCAxNjggNTQgYSAyOCAyOCAwIDEgMSA1NiAwIEMgMjI0IDY4LCAyMTQgNzgsIDE5NiA5OCBaIiBmaWxsPSIjZjk3MzE2IiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxjaXJjbGUgY3g9IjE5NiIgY3k9IjU0IiByPSIxMCIgZmlsbD0iI2ZmZmZmZiIvPgo8L3N2Zz4K" width="34" height="34" alt="" style="vertical-align:middle;border-radius:9px;margin-right:6px">Agent autocar</h1>
+<div class="tabs"><button id="t1" class="on">Temps de conduite</button><button id="t2">Itinéraire</button><button id="t3">Tachygraphe</button><button id="t4">Simulation</button></div>
+
+<section id="v1">
+  <div class="card"><h2>Où j’en suis</h2><div id="gauges"></div>
+    <label style="flex-direction:row;align-items:center;gap:6px;font-size:14px"><input type="checkbox" id="ten"> Journée à 10 h (2 fois par semaine max)</label>
+    <div id="alerts"></div></div>
+  <div class="card"><h2>Ma journée</h2><div class="tl" id="tl"></div>
+    <div class="ticks"><span>00h</span><span>06h</span><span>12h</span><span>18h</span><span>24h</span></div>
+    <div class="mut" style="margin-top:6px"><span style="color:var(--c)">■</span> conduite &nbsp;<span style="color:var(--w)">■</span> autre travail &nbsp;<span style="color:var(--p)">■</span> pause/repos &nbsp;<span style="color:var(--bad)">|</span> maintenant</div></div>
+  <div class="card"><h2>Ajouter une activité</h2>
+    <div class="row"><label>Type<select id="ty"><option value="c">Conduite</option><option value="w">Autre travail</option></select></label>
+    <label>Jour<input type="date" id="dt"></label><label>Début<input type="time" id="s"></label><label>Fin<input type="time" id="e"></label>
+    <button class="btn" id="add">Ajouter</button></div>
+    <div class="mut">Service de nuit : saisis deux périodes (jusqu’à 23:59, puis dès 00:00 le lendemain). Les pauses sont les trous entre deux activités.</div>
+    <div id="list"></div></div>
+</section>
+
+<section id="v2" class="hide">
+  <div class="card" id="auto"><h2>Chercher automatiquement</h2>
+    <div class="row"><label>De<input id="de" placeholder="ex. Lyon"></label><label>Vers<input id="vers" placeholder="ex. Marseille"></label>
+    <label>Facteur de durée<input type="number" id="fk" value="1.00" step="0.05" min="1" max="2" style="width:80px"></label><button class="btn" id="srch">Trouver le trajet et les aires</button></div>
+    <div class="row"><label>Service d’itinéraire<select id="src"><option value="ors">OpenRouteService – poids lourd (clé gratuite)</option><option value="osrm">OSRM – voiture (sans clé)</option></select></label>
+    <label>Clé OpenRouteService<input type="password" id="key" placeholder="colle ta clé ici" autocomplete="off"></label><button class="btn s" id="ksv">Enregistrer la clé</button><button class="btn s" id="kts">Tester la clé</button></div>
+    <div class="mut" id="kst">La clé est enregistrée automatiquement quand tu la colles. Pas besoin d’appuyer sur Entrée.</div>
+    <div class="row"><label>Hauteur (m)<input type="number" id="vh" value="3.7" step="0.05" min="2" max="5"></label><label>Longueur (m)<input type="number" id="vl" value="13" step="0.5" min="5" max="20"></label>
+    <label>Largeur (m)<input type="number" id="vw" value="2.55" step="0.05" min="2" max="3"></label><label>Poids (t)<input type="number" id="vp" value="19" step="0.5" min="3" max="40"></label></div>
+    <div class="mut">Dimensions par défaut = exemple : mets celles de ton autocar. Clé gratuite : <a href="https://openrouteservice.org/dev/#/signup" target="_blank" rel="noopener">openrouteservice.org</a> (2 000 itinéraires par jour). La clé reste dans ce navigateur ; ne la partage pas.</div>
+    <div class="mut" id="lnk"></div><div class="mut" id="sst">Trouve l’itinéraire et les stations/aires le long de la route (OpenStreetMap, Internet requis). L’itinéraire est calculé pour une voiture ; la durée est multipliée par le facteur autocar (1,15 par défaut, à ajuster).</div></div>
+  <div class="card"><h2>Mon trajet</h2>
+    <div class="row"><label>Départ<input type="time" id="dep" value="08:00"></label>
+    <label>Conduite totale<span style="display:flex;gap:4px;align-items:center"><input type="number" id="h" value="7" min="0" max="20">h<input type="number" id="m" value="30" min="0" max="59">min</span></label>
+    <label>Déjà conduit sans pause (min)<input type="number" id="c0" value="0" min="0" max="270"></label></div>
+    <div class="row"><label>Pause toutes les (min de conduite)<input type="number" id="pi" value="120" min="30" max="270"></label>
+    <label>Durée de la pause (min)<input type="number" id="pl" value="20" min="15" max="60"></label></div>
+    <label style="flex-direction:row;align-items:center;gap:6px;font-size:14px"><input type="checkbox" id="l10"> Journée à 10 h</label>
+    <label style="flex-direction:row;align-items:center;gap:6px;font-size:14px"><input type="checkbox" id="conf"> Seulement les arrêts confirmés compatibles autocar</label>
+    <label>Pauses sur<select id="ktype"><option value="all">aires et stations</option><option value="a">aires seulement 🅿️</option><option value="s">stations seulement ⛽</option></select></label>
+    <div class="mut">Les pauses « confort » suivent ton rythme ; la règle des 4h30 reste appliquée : la pause est allongée (30 ou 45 min) quand elle est obligatoire.</div></div>
+  <div class="card"><h2>Aires et stations trouvées sur ton trajet</h2>
+    <div class="mut">Elles sont cherchées automatiquement le long de la route : tu n’as rien à saisir. Lance « Trouver le trajet et les aires » plus haut.</div>
+    <div id="stops"></div></div>
+  <button class="btn" id="go" style="width:100%;margin-bottom:10px">Planifier les pauses</button>
+  <div class="card"><h2>Carte du trajet</h2>
+  <div class="row"><label>Fond de carte<select id="fond"></select></label></div>
+  <div class="row"><button class="btn s" id="mtest">Tester la carte</button></div>
+  <div class="mut" id="mst"></div><div id="map"></div>
+  <div class="mut" id="mleg">🟢 départ · 🏁 arrivée · pastilles vertes numérotées = pauses prévues · ⛽ 🅿️ = autres arrêts repérés. Lance « Itinéraire + stations » pour afficher le trajet.</div></div>
+  <div id="res"></div>
+</section>
+<section id="v3" class="hide">
+  <div class="card"><h2>Tachygraphe par Bluetooth</h2>
+    <div class="al" id="btw">Disponible seulement dans l’application Android « Agent autocar » : un navigateur ne sait pas parler à ce Bluetooth.</div>
+    <div class="mut">Interface ITS du tachygraphe (règlement UE 2016/799). <b>Test expérimental :</b> l’application affiche les échanges bruts, elle ne décode pas encore les valeurs. Le PIN n’est envoyé qu’à ta demande, 2 essais au maximum.</div>
+    <div class="row"><button class="btn s" id="btl">Appareils appairés</button><select id="btd"></select><button class="btn" id="btc">Connecter</button></div>
+    <div class="row"><button class="btn s" id="btr1">Demander les données</button>
+      <label>PIN affiché par le tachygraphe<input id="btp" maxlength="8" inputmode="numeric" style="width:120px"></label><button class="btn s" id="btp1">Envoyer le PIN</button></div>
+    <div class="mut" id="bts">État : non connecté</div>
+    <pre id="btg" style="background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:8px;max-height:260px;overflow:auto;font-size:12px;white-space:pre-wrap"></pre>
+    <button class="btn s" id="btcp">Copier le journal</button></div>
+</section>
+<section id="v4" class="hide">
+  <div class="card"><h2>Simulation de service</h2>
+    <div class="mut">Compose ta journée bloc par bloc : conduite, autre travail, disponibilité, pauses. L’application calcule les heures et signale ce qui ne respecte pas les règles.</div>
+    <div class="row"><label>Début de service<input type="time" id="qs0" value="06:00"></label>
+      <label style="flex-direction:row;align-items:center;gap:6px;font-size:14px"><input type="checkbox" id="qs10"> Journée à 10 h</label>
+      <label>Pause qui remet le TTE à zéro<select id="qpm"><option value="15">15 min</option><option value="30">30 min</option><option value="45">45 min</option></select></label></div>
+    <div class="row"><label>Type<select id="qk"><option value="c">🚌 Conduite</option><option value="w">🛠 Autre travail</option><option value="d">⏳ Disponibilité</option><option value="p">⏸ Pause</option></select></label>
+      <label>Durée<span style="display:flex;gap:4px;align-items:center"><input type="number" id="qh" value="1" min="0" max="20">h<input type="number" id="qm" value="0" min="0" max="59">min</span></label>
+      <label>Note (facultatif)<input id="qn" placeholder="ex. Lyon → Valence"></label>
+      <button class="btn" id="qadd">Ajouter</button></div>
+    <div class="row"><button class="btn s" id="qex">Exemple</button><button class="btn s" id="qimp">Reprendre le trajet de l’onglet Itinéraire</button><button class="btn s" id="qclr">Vider</button></div>
+    <div id="qlist"></div></div>
+  <div class="card hide" id="qres"></div>
+</section>
+<div class="card"><h2>Sauvegarde</h2><div class="mut">Tes données restent dans ce navigateur. Exporte-les de temps en temps (ou avant de déplacer le fichier).</div>
+<div class="row"><button class="btn s" id="exp">Exporter</button><button class="btn s" id="imp">Importer</button><input type="file" id="imf" accept=".json" class="hide"></div></div>
+<p class="mut">Aide uniquement : le chronotachygraphe et la loi font foi (règlement CE 561/2006).</p>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="cle.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const S={acts:[],stops:[],ten:false};
+try{Object.assign(S,JSON.parse(localStorage.getItem('aa')||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem('aa',JSON.stringify(S))}catch(e){}};
+const hm=m=>{const s=m<0?'-':'';m=Math.abs(Math.round(m));return s+Math.floor(m/60)+'h'+String(m%60).padStart(2,'0')};
+const clock=m=>{m=((Math.round(m)%1440)+1440)%1440;return String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0')};
+const tm=v=>{const[a,b]=v.split(':');return +a*60+ +b};
+const ymd=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const today=()=>ymd(new Date());
+const weekStart=()=>{const d=new Date();d.setDate(d.getDate()-((d.getDay()+6)%7));return ymd(d)};
+
+function calc(){
+  const td=today(),ws=weekStart(),n=new Date(),now=n.getHours()*60+n.getMinutes();
+  const day=S.acts.filter(a=>a.d===td).sort((a,b)=>a.s-b.s);
+  let cont=0,part=false,prev=null,jour=0;
+  const gap=g=>{if(g>=45){cont=0;part=false}else if(part&&g>=30){cont=0;part=false}else if(g>=15)part=true};
+  for(const a of day){if(prev!==null)gap(a.s-prev);if(a.t==='c'){cont+=a.e-a.s;jour+=a.e-a.s}prev=a.e}
+  if(prev!==null&&now>prev)gap(now-prev);
+  const sem=S.acts.filter(a=>a.t==='c'&&a.d>=ws&&a.d<=td).reduce((x,a)=>x+a.e-a.s,0);
+  return{day,cont,jour,sem,part,now,lim:S.ten?600:540};
+}
+function gauge(l,v,max,extra){
+  const p=Math.min(100,v/max*100),col=v>max?'var(--bad)':p>=80?'var(--w)':'var(--p)';
+  return `<div class="g"><div class="top"><span>${l}</span><b>${hm(v)} / ${hm(max)}</b></div><div class="bar"><i style="width:${p}%;background:${col}"></i></div><div class="mut">${v>max?'Dépassement de '+hm(v-max):'Reste '+hm(max-v)}${extra||''}</div></div>`;
+}
+function render1(){
+  const c=calc();
+  $('#gauges').innerHTML=gauge('Conduite continue (avant pause)',c.cont,270,c.part?' – 1re partie de pause faite : 30 min suffisent':' – pause de 45 min (ou 15 puis 30)')+gauge('Conduite du jour',c.jour,c.lim)+gauge('Conduite de la semaine',c.sem,3360);
+  const al=[];if(c.cont>270)al.push('Plus de 4h30 de conduite sans pause valide.');if(c.jour>c.lim)al.push('Limite de conduite journalière dépassée.');if(c.sem>3360)al.push('Limite hebdomadaire de 56 h dépassée.');
+  if(!al.length&&c.cont>=225)al.push('Pause imminente : moins de 45 min de conduite avant la pause obligatoire.');
+  $('#alerts').innerHTML=al.map(a=>`<div class="al">⚠ ${a}</div>`).join('');
+  $('#tl').innerHTML=c.day.map(a=>`<i style="left:${a.s/14.4}%;width:${(a.e-a.s)/14.4}%;background:${a.t==='c'?'var(--c)':'var(--w)'}"></i>`).join('')+`<i class="now" style="left:${c.now/14.4}%"></i>`;
+  $('#list').innerHTML=S.acts.slice().sort((a,b)=>(a.d+clock(a.s)).localeCompare(b.d+clock(b.s))).slice(-12).reverse().map((a,i)=>`<div class="li"><span>${a.d.slice(5).split('-').reverse().join('/')} · ${a.t==='c'?'Conduite':'Travail'} ${clock(a.s)}→${clock(a.e)} (${hm(a.e-a.s)})</span><button class="btn s" data-del="${S.acts.indexOf(a)}">✕</button></div>`).join('');
+  $('#ten').checked=S.ten;
+}
+function renderStops(){
+  S.stops.sort((a,b)=>a.p-b.p);
+  $('#stops').innerHTML=(S.stops.length>40?`<div class="mut">${S.stops.length} arrêts (40 premiers affichés)</div>`:'')+S.stops.slice(0,40).map((s,i)=>`<div class="li"><span>${ic(s)} ${esc(s.n)}${s.c?bd(s):''} – à ${hm(s.p)} de conduite</span></div>`).join('')||'<div class="mut">Aucune aire ou station pour l’instant : lance « Trouver le trajet et les aires ».</div>';
+}
+const bd=s=>s.c==='o'?' <span title="indiqué compatible autocar/poids lourds sur la carte" style="color:var(--p)">✔ autocar</span>':' <span title="non précisé sur la carte : vérifie sur place" style="color:var(--w)">? à vérifier</span>';
+const ic=s=>s.y==='s'?'⛽':'🅿️';
+let MAP=null,LAY=null,LASTSEG=null,TL=null,FOND=0,ERR=0,OKT=0,TO=null;
+const FONDS=[
+ {n:'CARTO',u:'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',o:{subdomains:'abcd',maxZoom:19,attribution:'© les contributeurs d’OpenStreetMap, © CARTO'}},
+ {n:'Esri (rues)',u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',o:{maxZoom:18,attribution:'Tiles © Esri'}},
+ {n:'OpenStreetMap direct (souvent bloqué sur un fichier local)',manuel:true,u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',o:{maxZoom:18,attribution:'© les contributeurs d’OpenStreetMap'}}];
+if(location.protocol==='http:'){
+  FONDS.unshift({n:'OpenStreetMap (relayé par le serveur local)',u:'/tuiles/osm/{z}/{x}/{y}.png',o:{maxZoom:18,attribution:'© les contributeurs d’OpenStreetMap'}},
+                {n:'CARTO (relayé par le serveur local)',u:'/tuiles/carto/{z}/{x}/{y}.png',o:{maxZoom:19,attribution:'© les contributeurs d’OpenStreetMap, © CARTO'}})}
+$('#fond').innerHTML=FONDS.map((f,i)=>'<option value="'+i+'">'+f.n+'</option>').join('');
+function setFond(i,auto){
+  const prev=FONDS[FOND].n;FOND=((i%FONDS.length)+FONDS.length)%FONDS.length;
+  if(TL)MAP.removeLayer(TL);ERR=0;OKT=0;const f=FONDS[FOND];
+  TL=L.tileLayer(f.u,f.o).addTo(MAP);
+  TL.on('tileload',()=>{OKT++;$('#mst').textContent=''});
+  TL.on('tileerror',()=>{ERR++;if(ERR>=4&&OKT===0){const nx=FONDS.findIndex((f,i)=>i>FOND&&!f.manuel);if(nx>=0)setFond(nx,true);else $('#mst').textContent='Aucun fond de carte ne répond : le tracé reste visible mais sans fond. Vérifie ta connexion.'}});
+  clearTimeout(TO);TO=setTimeout(()=>{if(OKT===0)testFonds(true)},6000);
+  $('#fond').value=FOND;if(auto)$('#mst').textContent='Fond « '+prev+' » indisponible depuis ce fichier : essai de « '+f.n+' »…';
+}
+const tileUrl=(f,z,x,y)=>f.u.replace('{s}','a').replace('{r}','').replace('{z}',z).replace('{x}',x).replace('{y}',y);
+const testImg=(url,ms=8000)=>new Promise(res=>{const t0=Date.now(),im=new Image();let fini=false;const end=r=>{if(!fini){fini=true;res(r)}};
+  im.onload=()=>end({ok:true,ms:Date.now()-t0});im.onerror=()=>end({ok:false,why:'refusé ou bloqué'});
+  setTimeout(()=>end({ok:false,why:'pas de réponse (délai dépassé)'}),ms);im.src=url});
+async function testFonds(auto){
+  $('#mst').textContent='Test des fonds de carte en cours…';
+  if(MAP)MAP.invalidateSize();
+  const r=await Promise.all(FONDS.map(async f=>({n:f.n,...(await testImg(tileUrl(f,5,16,11)))})));
+  const sz=MAP?MAP.getSize():null;
+  $('#mst').textContent=r.map(x=>x.n+' : '+(x.ok?'OK ('+x.ms+' ms)':x.why)).join(' · ')+(sz?' · zone de carte '+sz.x+'×'+sz.y+' px':' · carte non initialisée')+(typeof L==='undefined'?' · BIBLIOTHÈQUE DE CARTE NON CHARGÉE':'');
+  if(auto&&MAP){const i=r.findIndex((x,k)=>x.ok&&!FONDS[k].manuel);if(i>=0&&i!==FOND)setFond(i)}
+  return r}
+$('#mtest').onclick=()=>{initMap();testFonds(true)};
+$('#fond').onchange=e=>{if(initMap())setFond(+e.target.value)};
+function initMap(){
+  if(MAP)return true;if(typeof L==='undefined')return false;
+  MAP=L.map('map').setView([46.6,2.4],5);
+  LAY=L.layerGroup().addTo(MAP);setFond(0);return true}
+const mk=(pos,html,sz)=>L.marker(pos,{icon:L.divIcon({html,className:'nb',iconSize:sz||[26,26],iconAnchor:[(sz||[26,26])[0]/2,(sz||[26,26])[1]/2]})});
+const pop=s=>ic(s)+' <b>'+esc(s.n)+'</b>'+bd(s)+'<br>à '+hm(s.p)+' de conduite';
+function drawMap(seg){
+  if(!initMap()){$('#mleg').textContent='Carte indisponible : la bibliothèque de carte n’a pas pu se charger (connexion nécessaire).';return}
+  LAY.clearLayers();const R=S.route;if(!R||!R.co||!R.co.length)return;
+  L.polyline(R.co,{color:'#2563eb',weight:5,opacity:.85}).addTo(LAY);
+  mk(R.co[0],'<div class="pin">🟢</div>').addTo(LAY).bindPopup('Départ'+(R.de?' : '+esc(R.de):''));
+  mk(R.co[R.co.length-1],'<div class="pin">🏁</div>').addTo(LAY).bindPopup('Arrivée'+(R.vers?' : '+esc(R.vers):''));
+  const used=new Set((seg||[]).filter(x=>x.k==='p'&&x.st).map(x=>x.st));
+  S.stops.forEach(s=>{if(s.lat==null||used.has(s))return;mk([s.lat,s.lon],'<div class="pin sm">'+ic(s)+'</div>',[24,24]).addTo(LAY).bindPopup(pop(s))});
+  let n=0;(seg||[]).forEach(x=>{if(x.k!=='p')return;n++;
+    const pos=x.st&&x.st.lat!=null?[x.st.lat,x.st.lon]:pointAt(R.co,R.dur,x.pos);
+    mk(pos,'<div class="pm">'+n+'</div>',[30,30]).addTo(LAY).bindPopup('<b>Pause '+n+'</b> · '+clock(x.a)+' → '+clock(x.b)+' ('+x.len+' min, '+(x.forced?'obligatoire':'confort')+')<br>'+(x.st?pop(x.st):'arrêt à trouver dans cette zone'))});
+  MAP.fitBounds(L.polyline(R.co).getBounds(),{padding:[20,20]});
+}
+function plan(){
+  const g=id=>+$(id).value,D=(g('#h')||0)*60+(g('#m')||0),lim=$('#l10').checked?600:540,t0=tm($('#dep').value||'08:00');
+  if(D<=0){$('#res').innerHTML='<div class="al">Indique une durée de conduite.</div>';return}
+  const stops=arretsFiltres(S.stops,$('#conf').checked,$('#ktype').value);
+  const {seg,al}=calcPlan({t0,D,T:g('#pi')||120,L:g('#pl')||20,c0:g('#c0')||0,stops});
+  const clk=seg[seg.length-1].b,P=seg.filter(x=>x.k==='p'),tot=clk-t0;
+  if(D>lim)al.push(`${hm(D)} de conduite dépassent la limite journalière de ${hm(lim)} : un repos journalier (9 h réduit ou 11 h) est nécessaire.`);
+  if(tot>780)al.push('Amplitude de service très longue : le repos journalier de 11 h risque de ne plus tenir dans les 24 h.');
+  let h=`<div class="card"><h2>Résultat</h2><div>${P.length} pause(s) · ${hm(P.reduce((x,y)=>x+y.len,0))} d’arrêt · arrivée estimée <b>${clock(clk)}</b> · durée totale ${hm(tot)}</div>`;
+  h+=`<div class="pl">${seg.map(x=>`<div style="flex:${x.b-x.a};background:${x.k==='c'?'var(--c)':'var(--p)'}">${x.k==='p'?(x.st?ic(x.st):'⏸'):''}</div>`).join('')}</div>`;
+  h+=seg.map(x=>x.k==='c'?`<div class="st">🚌 Conduite ${clock(x.a)} → ${clock(x.b)} (${hm(x.b-x.a)})</div>`:
+    `<div class="st">⏸ <b>Pause ${clock(x.a)} → ${clock(x.b)}</b> (${x.len} min, ${x.forced?'obligatoire':'confort'}) – ${x.st?ic(x.st)+' '+esc(x.st.n)+bd(x.st):'<span style="color:var(--bad)">arrêt à trouver</span>'}`+
+    (x.opts.length?`<div class="mut">Autres arrêts proches : ${x.opts.map(o=>ic(o.s)+' '+esc(o.s.n)+' ('+clock(o.at)+')'+(o.s.c==='o'?' ✔':' ?')).join(' · ')}</div>`:'')+'</div>').join('');
+  h+=al.map(a=>`<div class="al">⚠ ${a}</div>`).join('')||'<div class="ok">Trajet réalisable dans la limite journalière.</div>';
+  h+='<div class="mut" style="margin-top:6px">✔ = la carte indique que l’arrêt convient aux autocars/poids lourds ; ? = non précisé, à vérifier sur place (hauteur, accès, gazole). Aire d’autoroute = ✔ par défaut.</div></div>';
+  $('#res').innerHTML=h;
+  LASTSEG=seg;drawMap(seg);
+}
+function tab(n){for(const i of[1,2,3,4]){const v=$('#v'+i);if(v){v.classList.toggle('hide',n!==i);$('#t'+i).classList.toggle('on',n===i)}}if(n===4)simRender();if(n===2)setTimeout(()=>{if(initMap()){MAP.invalidateSize();drawMap(LASTSEG)}else drawMap(LASTSEG)},60)}
+$('#t1').onclick=()=>tab(1);$('#t2').onclick=()=>tab(2);$('#t4').onclick=()=>tab(4);$('#t3').onclick=()=>tab(3);
+$('#dt').value=today();
+$('#add').onclick=()=>{
+  const s=$('#s').value,e=$('#e').value;if(!s||!e||!$('#dt').value)return alert('Remplis le jour, le début et la fin.');
+  if(tm(e)<=tm(s))return alert('La fin doit être après le début. Pour passer minuit, saisis deux périodes.');
+  const a={t:$('#ty').value,d:$('#dt').value,s:tm(s),e:tm(e)};
+  if(S.acts.some(x=>x.d===a.d&&a.s<x.e&&x.s<a.e))return alert('Cette période en chevauche une autre.');
+  S.acts.push(a);save();render1();
+};
+$('#list').onclick=e=>{const i=e.target.dataset.del;if(i!==undefined){S.acts.splice(+i,1);save();render1()}};
+$('#ten').onchange=e=>{S.ten=e.target.checked;save();render1()};
+$('#go').onclick=plan;
+//#pure-start
+const hav=(a,b)=>{const R=6371000,r=Math.PI/180,dp=(b[0]-a[0])*r,dl=(b[1]-a[1])*r,h=Math.sin(dp/2)**2+Math.cos(a[0]*r)*Math.cos(b[0]*r)*Math.sin(dl/2)**2;return 2*R*Math.asin(Math.sqrt(h))};
+const cumul=c=>{const o=[0];for(let i=1;i<c.length;i++)o.push(o[i-1]+hav(c[i-1],c[i]));return o};
+function echant(c,pas){const cu=cumul(c),o=[];let nx=0;c.forEach((p,i)=>{if(cu[i]>=nx){o.push(p);nx=cu[i]+pas}});if(o[o.length-1]!==c[c.length-1])o.push(c[c.length-1]);return o}
+const requete=(pts,r)=>{const z=`(around:${r},${pts.map(p=>p[0].toFixed(5)+','+p[1].toFixed(5)).join(',')})`;return `[out:json][timeout:60];(nwr["amenity"="fuel"]${z};nwr["highway"="services"]${z};nwr["highway"="rest_area"]${z};);out center tags;`};
+function lieux(d){return (d.elements||[]).map(e=>{const t=e.tags||{},la=e.lat??(e.center&&e.center.lat),lo=e.lon??(e.center&&e.center.lon);if(la==null)return null;
+  const f=t.amenity==='fuel',no=t.hgv==='no'||t.bus==='no'||t['fuel:diesel']==='no';
+  const ok=t.hgv==='yes'||t.bus==='yes'||t['fuel:HGV_diesel']==='yes'||t.highway==='services';
+  return{lat:la,lon:lo,n:t.name||t.brand||t.operator||(f?'Station-service':'Aire de services/repos'),y:f?'s':'a',c:no?'n':ok?'o':'?'}}).filter(x=>x&&x.c!=='n')}
+function projeter(c,dur,ls,rayon=1200,fusion=400){
+  const cu=cumul(c),tot=cu[cu.length-1]||1,idx=[0];
+  cu.forEach((d,i)=>{if(d-cu[idx[idx.length-1]]>=150)idx.push(i)});if(idx[idx.length-1]!==c.length-1)idx.push(c.length-1);
+  const tr=[];
+  for(const l of ls){let bi=idx[0],bd=1e18;for(const i of idx){const d=hav(c[i],[l.lat,l.lon]);if(d<bd){bd=d;bi=i}}
+    if(bd<=rayon)tr.push({pos:cu[bi],n:l.n,y:l.y,c:l.c,lat:l.lat,lon:l.lon,p:Math.round(cu[bi]/tot*dur),det:Math.round(bd)})}
+  tr.sort((a,b)=>a.pos-b.pos);const o=[];
+  for(const a of tr){const last=o[o.length-1];if(last&&a.pos-last.pos<=fusion){if(a.y==='s')last.y='s';if(a.c==='o')last.c='o';continue}o.push(a)}
+  return o}
+function calcPlan({t0,D,T,L,c0,stops}){
+  T=Math.max(30,T);L=Math.max(15,L);c0=Math.min(270,c0);
+  let clk=t0,pos=0,since=c0,leg=c0,part=false;const seg=[],al=[];
+  for(let it=0;it<80;it++){
+    const hard=270-leg,rest=D-pos,toT=T-since;
+    if(rest<=hard&&rest<=toT+15){seg.push({k:'c',a:clk,b:clk+rest});clk+=rest;break}
+    const forced=hard<=toT,tgt=pos+Math.max(0,Math.min(toT,hard));
+    const cand=stops.filter(s=>s.p>pos&&s.p<=pos+hard&&s.p<D);
+    const near=cand.filter(s=>Math.abs(s.p-tgt)<=30),pool=near.length?near:cand;
+    const st=pool.length?pool.reduce((b,s)=>Math.abs(s.p-tgt)<Math.abs(b.p-tgt)?s:b):null;
+    const p=st?st.p:tgt;
+    if(!st)al.push('Aucun arrêt connu vers '+hm(tgt)+' de conduite ('+clock(clk+tgt-pos)+') : à trouver dans cette zone.');
+    else if(Math.abs(st.p-tgt)>30)al.push('Arrêt « '+esc(st.n)+' » à '+hm(st.p)+' de conduite, loin de la pause prévue à '+hm(tgt)+'.');
+    const len=forced?(part?30:45):(part?Math.max(L,30):L),run=p-pos,base=clk;
+    if(run>0)seg.push({k:'c',a:clk,b:clk+run});
+    clk+=run;
+    const opts=pool.filter(x=>x!==st).sort((x,y)=>x.p-y.p).map(x=>({s:x,at:base+(x.p-pos)}));
+    seg.push({k:'p',a:clk,b:clk+len,st,forced,opts,len,pos:p});
+    clk+=len;pos=p;leg+=run;since=0;
+    if(len>=45||(part&&len>=30)){leg=0;part=false}else if(len>=15)part=true;
+  }
+  return{seg,al};
+}
+const orsCorps=(A,B,v)=>{const rs={};for(const k of['height','length','width','weight'])if(v[k]>0)rs[k]=v[k];return{coordinates:[[A[1],A[0]],[B[1],B[0]]],instructions:false,options:{profile_params:{restrictions:rs}}}};
+const orsLire=j=>{const f=j.features&&j.features[0];if(!f)throw new Error('aucun itinéraire trouvé pour ce gabarit');return{co:f.geometry.coordinates.map(([lo,la])=>[la,lo]),distM:f.properties.summary.distance,durS:f.properties.summary.duration}};
+function pointAt(co,dur,p){const cu=cumul(co),tot=cu[cu.length-1]||1,t=tot*Math.min(Math.max(p/(dur||1),0),1);let i=0;while(i<cu.length-1&&cu[i]<t)i++;return co[i]}
+const tCs=a=>a.reduce((x,y)=>(x+y)&255,0);
+const tFrame=(tgt,src,sid,trtp,data=[],cc=255,cm=255)=>{const b=[tgt,src,data.length,sid,trtp,cc,cm,...data];b.push(tCs(b));return b};
+const tHex=a=>a.map(x=>x.toString(16).padStart(2,'0')).join('');
+const tBytes=s=>(s.match(/../g)||[]).map(x=>parseInt(x,16));
+const T_NOMS={1:'RequestPIN',2:'SendITSID',3:'SendPIN',4:'PairingResult',5:'SendPUC',6:'BanLiftingResult',7:'RequestRejected',8:'RequestData',9:'RequestAccepted',10:'DataUnavailable',11:'NegativeAnswer'};
+function tParse(b){if(b.length<8)return null;return{tgt:b[0],src:b[1],len:b[2],sid:b[3],nom:T_NOMS[b[3]]||'inconnu',trtp:b[4],cc:b[5],cm:b[6],data:b.slice(7,-1),cs:tCs(b.slice(0,-1))===b[b.length-1]}}
+const SIM_T={c:'Conduite',w:'Autre travail',d:'Disponibilité',p:'Pause'};
+function simuler({t0,l10,blocs,pm}){
+  pm=pm||15;const lim=l10?600:540,seg=[],al=[],tot={c:0,w:0,d:0,p:0},vu={},pic={c:0,t:0};
+  let clk=t0,cont=0,part=false,jour=0,tte=0,tteTot=0,cycC=0,cycT=0,p15=0;
+  const A=(k,t,s,m)=>{if(!vu[k]){vu[k]=1;al.push({t,s,m})}};   // s : 'o' orange, 'r' rouge
+  for(const b of blocs){
+    const a=clk,m=b.min;seg.push({k:b.k,a,b:a+m,n:b.n||''});tot[b.k]+=m;
+    if(b.k==='c'){
+      if(cont<240&&cont+m>=240)A('cO'+cycC,a+240-cont,'o','4 h de conduite continue : prévois ta pause avant 4h30 (45 min, ou 15 puis 30 min).');
+      if(cont<270&&cont+m>=270)A('cR'+cycC,a+270-cont,'r',cont+m>270?'4h30 de conduite continue atteintes puis dépassées : pause obligatoire immédiatement.':'4h30 de conduite continue atteintes : pause obligatoire maintenant.');
+      if(cont>=270)A('cX'+cycC,a,'r','Conduite reprise alors que 4h30 sont déjà atteintes sans pause valide : dépassement.');
+      if(jour+m>lim)A('jour',a+Math.max(0,lim-jour),'r','Conduite journalière dépassée ('+hm(lim)+' maximum).');
+      cont+=m;jour+=m;pic.c=Math.max(pic.c,cont)}
+    if(b.k!=='p'){   // TTE : conduite + autre travail + disponibilité
+      if(tte<330&&tte+m>=330)A('tO'+cycT,a+330-tte,'o','5h30 de temps de travail effectif (conduite + travail + disponibilité) : prévois une pause.');
+      if(tte<360&&tte+m>=360)A('tR'+cycT,a+360-tte,'r',tte+m>360?'TTE : 6 h atteintes puis dépassées : pause nécessaire.':'TTE : 6 h atteintes (conduite + travail + disponibilité) : pause nécessaire.');
+      if(tte>=360)A('tX'+cycT,a,'r','Reprise du travail alors que 6 h de TTE sont déjà atteintes sans pause : dépassement.');
+      tte+=m;tteTot+=m;pic.t=Math.max(pic.t,tte)}
+    else{
+      if(m>=45){cont=0;part=false;cycC++}else if(part&&m>=30){cont=0;part=false;cycC++}else if(m>=15)part=true;
+      if(m>=pm){tte=0;cycT++}
+      if(m>=15)p15+=m}
+    clk+=m}
+  const amp=clk-t0;
+  if(tteTot>540&&p15<45)al.push({t:clk,s:'o',m:'Plus de 9 h de TTE : au moins 45 min de pauses sont attendues (tu en as '+p15+' min).'});
+  else if(tteTot>360&&p15<30)al.push({t:clk,s:'o',m:'Plus de 6 h de TTE : au moins 30 min de pauses sont attendues (tu en as '+p15+' min).'});
+  if(amp>900)al.push({t:t0+900,s:'r',m:'Amplitude de plus de 15 h : même un repos réduit de 9 h ne tient plus dans les 24 h.'});
+  else if(amp>780)al.push({t:t0+780,s:'o',m:'Amplitude de plus de 13 h : seul un repos journalier réduit (9 h) sera possible.'});
+  al.sort((x,y)=>x.t-y.t);
+  return{seg,tot,al,fin:clk,amp,lim,pic};
+}
+const arretsFiltres=(stops,conf,kt)=>stops.filter(s=>s.lat!=null&&(!conf||s.c==='o')&&(!kt||kt==='all'||s.y===kt));
+function cleInitiale(hash,cfg){let k=cfg||'';const m=(hash||'').match(/[#&]cle=([^&]+)/);if(m){try{k=decodeURIComponent(m[1])}catch(e){k=m[1]}}return String(k).trim()}
+//#pure-end
+async function jget(url,opt){let r;try{r=await fetch(url,opt)}catch(e){throw new Error('pas de connexion ou service bloqué')}
+  if(!r.ok){let m='';try{const j=await r.json();m=typeof j.error==='string'?j.error:(j.error&&j.error.message)||j.message||''}catch(e){}
+    throw new Error(r.status===401||r.status===403?'clé refusée ou quota atteint ('+r.status+')':'service indisponible ('+r.status+(m?' : '+m:'')+')')}
+  return r.json()}
+const geo=async q=>{const j=await jget('https://nominatim.openstreetmap.org/search?format=json&limit=1&q='+encodeURIComponent(q));if(!j.length)throw new Error('lieu introuvable : '+q);return[+j[0].lat,+j[0].lon]};
+$('#srch').onclick=async()=>{
+  const de=$('#de').value.trim(),vers=$('#vers').value.trim();if(!de||!vers)return alert('Indique le départ et l’arrivée.');
+  const st=m=>$('#sst').textContent=m;$('#srch').disabled=true;
+  try{st('1/3 Recherche des lieux…');const A=await geo(de);await new Promise(r=>setTimeout(r,1100));const B=await geo(vers);
+    st('2/3 Calcul de l’itinéraire…');let co,distM,durS;
+    if($('#src').value==='ors'){const key=$('#key').value.trim();if(!key)throw new Error('colle ta clé OpenRouteService (gratuite) ou choisis OSRM');
+      const v={height:+$('#vh').value,length:+$('#vl').value,width:+$('#vw').value,weight:+$('#vp').value};
+      ({co,distM,durS}=orsLire(await jget('https://api.openrouteservice.org/v2/directions/driving-hgv/geojson',{method:'POST',headers:{'Authorization':key,'Content-Type':'application/json'},body:JSON.stringify(orsCorps(A,B,v))})))}
+    else{const j=await jget(`https://router.project-osrm.org/route/v1/driving/${A[1]},${A[0]};${B[1]},${B[0]}?overview=full&geometries=geojson`);
+      if(j.code!=='Ok'||!j.routes.length)throw new Error('aucun itinéraire trouvé');const rt=j.routes[0];co=rt.geometry.coordinates.map(([lo,la])=>[la,lo]);distM=rt.distance;durS=rt.duration}
+    const fk=+$('#fk').value||1,dur=Math.round(durS/60*fk);
+    st('3/3 Recherche des stations et aires (jusqu’à une minute)…');
+    const o=await jget('https://overpass-api.de/api/interpreter',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'data='+encodeURIComponent(requete(echant(co,3000),1200))});
+    const ar=projeter(co,dur,lieux(o));
+    S.route={co:echant(co,400),dur,de,vers};S.stops=ar.map(a=>({n:a.n,y:a.y,p:a.p,c:a.c,lat:a.lat,lon:a.lon}));$('#h').value=Math.floor(dur/60);$('#m').value=dur%60;save();renderStops();plan();
+    $('#sst').innerHTML=Math.round(distM/1000)+' km, conduite estimée '+hm(dur)+' ('+($('#src').value==='ors'?'calcul poids lourd selon ton gabarit':'itinéraire voiture')+' × '+fk+'), '+ar.length+' arrêt(s) repéré(s). Vérifie qu’ils conviennent à un autocar.';
+    const ll=x=>x[0].toFixed(5)+','+x[1].toFixed(5);
+    $('#lnk').innerHTML='Comparer avec : <a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin='+ll(A)+'&destination='+ll(B)+'&travelmode=driving">Google Maps</a> · <a target="_blank" rel="noopener" href="https://waze.com/ul?ll='+ll(B)+'&navigate=yes">Waze (destination)</a>';
+  }catch(e){st('Échec : '+e.message)}
+  $('#srch').disabled=false};
+try{$('#key').value=localStorage.getItem('aakey')||''}catch(e){}
+(()=>{const k=cleInitiale(location.hash,window.CLE_ORS);if(/[#&]cle=/.test(location.hash))history.replaceState(null,'',location.pathname+location.search);
+  if(k&&k!==$('#key').value.trim()){$('#key').value=k;try{localStorage.setItem('aakey',k)}catch(e){}$('#kst').textContent='✔ Clé préchargée ('+k.length+' caractères). Touche « Tester la clé » pour vérifier.'}})();
+S.stops=(S.stops||[]).filter(s=>s.lat!=null);   // retire d'anciens arrêts saisis à la main
+['#pi','#pl','#l10','#conf','#ktype','#dep','#c0','#h','#m'].forEach(id=>{$(id).addEventListener('change',()=>{if(S.route&&S.stops.length)plan()})});
+$('#key').onchange=()=>{try{localStorage.setItem('aakey',$('#key').value.trim())}catch(e){}};
+$('#src').onchange=()=>{$('#fk').value=$('#src').value==='ors'?'1.00':'1.15'};
+$('#exp').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(S)],{type:'application/json'}));a.download='agent-autocar-sauvegarde.json';a.click()};
+$('#imp').onclick=()=>$('#imf').click();
+$('#imf').onchange=async e=>{try{const d=JSON.parse(await e.target.files[0].text());if(!Array.isArray(d.acts))throw 0;Object.assign(S,{acts:d.acts,stops:d.stops||[],ten:!!d.ten,route:d.route||null,sim:d.sim||S.sim});save();render1();renderStops();alert('Sauvegarde importée.')}catch(x){alert('Fichier illisible.')}};
+const BT=window.AndroidBT,TG={id:0xA0};
+$('#btw').style.display=BT?'none':'block';
+const tlog=m=>{const e=$('#btg');e.textContent+=new Date().toLocaleTimeString()+'  '+m+'\n';e.scrollTop=e.scrollHeight};
+window.onTachoEtat=s=>{$('#bts').textContent='État : '+s;tlog('• '+s)};
+window.onTachoData=h=>{const p=tParse(tBytes(h));let t='← '+h;
+  if(p){t+='   ['+p.nom+(p.cs?'':' – somme de contrôle différente : format autre que ma lecture de la norme')+']';
+    if(p.sid===2&&p.data.length)TG.id=p.data[0];
+    if(p.sid===1)t+=' → le tachygraphe demande le PIN';
+    if(p.sid===4)t+=p.data[0]?' → PIN accepté':' → PIN refusé'}
+  tlog(t)};
+const tsend=f=>{const h=tHex(f);tlog('→ '+h);const r=BT.envoyer(h);if(r!=='ok')tlog('! '+r)};
+$('#btl').onclick=()=>{if(!BT)return;try{const l=JSON.parse(BT.appareils());$('#btd').innerHTML=l.map(d=>'<option value="'+esc(d.adresse)+'">'+esc(d.nom)+' ('+esc(d.adresse)+')</option>').join('')||'<option value="">Aucun appareil appairé (ou accepte l’autorisation Bluetooth puis réessaie)</option>'}catch(e){tlog('! '+e.message)}};
+$('#btc').onclick=()=>{if(BT&&$('#btd').value){TG.id=0xA0;BT.connecter($('#btd').value)}};
+$('#btr1').onclick=()=>{if(BT)tsend(tFrame(0xEE,TG.id,8,1))};
+$('#btp1').onclick=()=>{if(!BT)return;const p=$('#btp').value.trim();if(!/^\d{4,8}$/.test(p))return alert('Le PIN affiché par le tachygraphe a 4 chiffres ou plus.');
+  if(!confirm('Envoyer le PIN '+p+' au tachygraphe ?\n\nUn mauvais code compte comme un échec : 3 échecs de suite = blocage de 30 s, 15 = blocage définitif (code PUC du constructeur nécessaire).\nEssais déjà faits : '+BT.essaisPin()+' sur 2.'))return;
+  tsend(tFrame(0xEE,TG.id,3,0xFF,[...p].map(Number)))};
+$('#btcp').onclick=()=>{try{navigator.clipboard.writeText($('#btg').textContent);alert('Journal copié.')}catch(e){alert('Copie impossible : sélectionne le texte à la main.')}};
+S.sim=S.sim||{t0:'06:00',l10:false,blocs:[]};
+const SCOL={c:'var(--c)',w:'var(--w)',d:'#a78bfa',p:'var(--p)'},SICO={c:'🚌',w:'🛠',d:'⏳',p:'⏸'};
+const simChip=(l,v,o,r)=>{const c=v>=r?'var(--bad)':v>=o?'var(--w)':'var(--p)';return '<span style="display:inline-block;margin:2px 6px 2px 0;padding:3px 10px;border-radius:12px;font-size:13px;border:1px solid '+c+';background:color-mix(in srgb,'+c+' 22%,transparent)">'+l+' : <b>'+hm(v)+'</b></span>'};
+function simRender(){
+  const q=S.sim,r=simuler({t0:tm(q.t0),l10:q.l10,blocs:q.blocs,pm:q.pm||15});
+  $('#qs0').value=q.t0;$('#qs10').checked=!!q.l10;$('#qpm').value=String(q.pm||15);
+  $('#qlist').innerHTML=q.blocs.map((b,i)=>'<div class="li"><span>'+SICO[b.k]+' '+SIM_T[b.k]+' '+hm(b.min)+(b.n?' – '+esc(b.n):'')+'<br><span class="mut">'+clock(r.seg[i].a)+' → '+clock(r.seg[i].b)+'</span></span><span style="white-space:nowrap"><button class="btn s" data-up="'+i+'">↑</button> <button class="btn s" data-dn="'+i+'">↓</button> <button class="btn s" data-rm="'+i+'">✕</button></span></div>').join('')||'<div class="mut">Aucun bloc : ajoute-en, ou charge un exemple.</div>';
+  const R=$('#qres');R.classList.toggle('hide',!q.blocs.length);if(!q.blocs.length)return;
+  R.innerHTML='<h2>Résultat</h2><div class="pl">'+r.seg.map(x=>'<div style="flex:'+(x.b-x.a)+';background:'+SCOL[x.k]+'">'+SICO[x.k]+'</div>').join('')+'</div>'+
+   '<div>Service de <b>'+clock(tm(q.t0))+'</b> à <b>'+clock(r.fin)+'</b> (amplitude '+hm(r.amp)+')</div>'+
+   '<div class="mut">🚌 conduite '+hm(r.tot.c)+' · 🛠 autre travail '+hm(r.tot.w)+' · ⏳ disponibilité '+hm(r.tot.d)+' · ⏸ pauses '+hm(r.tot.p)+'</div>'+
+   '<div style="margin:6px 0">'+simChip('Conduite continue max',r.pic.c,240,270)+simChip('TTE max d’affilée',r.pic.t,330,360)+'</div>'+
+   (r.al.map(a=>'<div class="'+(a.s==='r'?'al':'wa')+'">'+(a.s==='r'?'⛔ ':'⚠ ')+clock(a.t)+' – '+a.m+'</div>').join('')||'<div class="ok">Aucune alerte dans cette simulation.</div>')+
+   '<div class="mut" style="margin-top:6px">Alertes : conduite continue <b>orange à 4 h, rouge à 4h30</b> ; TTE = conduite + autre travail + disponibilité, <b>orange à 5h30, rouge à 6 h</b> ; une pause d’au moins '+(q.pm||15)+' min remet le TTE à zéro (réglable). Conduite du jour ('+hm(r.lim)+') et amplitude aussi testées. Règle de TTE à vérifier selon ton entreprise. Aide uniquement : le chronotachygraphe et la loi font foi.</div>';
+}
+$('#qs0').onchange=()=>{S.sim.t0=$('#qs0').value||'06:00';save();simRender()};
+$('#qpm').onchange=()=>{S.sim.pm=+$('#qpm').value;save();simRender()};
+$('#qs10').onchange=()=>{S.sim.l10=$('#qs10').checked;save();simRender()};
+$('#qadd').onclick=()=>{const min=(+$('#qh').value||0)*60+(+$('#qm').value||0);if(min<1)return alert('Indique une durée.');S.sim.blocs.push({k:$('#qk').value,min,n:$('#qn').value.trim()});$('#qn').value='';save();simRender()};
+$('#qlist').onclick=e=>{const d=e.target.dataset,b=S.sim.blocs;
+  if(d.rm!==undefined)b.splice(+d.rm,1);
+  else if(d.up!==undefined&&+d.up>0){const i=+d.up;[b[i-1],b[i]]=[b[i],b[i-1]]}
+  else if(d.dn!==undefined&&+d.dn<b.length-1){const i=+d.dn;[b[i+1],b[i]]=[b[i],b[i+1]]}
+  else return;save();simRender()};
+$('#qex').onclick=()=>{S.sim={t0:'06:00',l10:false,pm:15,blocs:[{k:'w',min:30,n:'Prise de service'},{k:'c',min:150,n:'Trajet aller'},{k:'p',min:20},{k:'c',min:120},{k:'d',min:90,n:'Attente du groupe'},{k:'c',min:180,n:'Trajet retour'}]};save();simRender()};
+$('#qimp').onclick=()=>{if(!LASTSEG||!LASTSEG.length)return alert('Lance d’abord « Planifier les pauses » dans l’onglet Itinéraire.');
+  S.sim={t0:clock(LASTSEG[0].a),l10:$('#l10')?$('#l10').checked:false,blocs:LASTSEG.map(x=>x.k==='c'?{k:'c',min:x.b-x.a,n:'Conduite'}:{k:'p',min:x.b-x.a,n:x.st?x.st.n:''})};save();simRender()};
+$('#qclr').onclick=()=>{if(confirm('Vider la simulation ?')){S.sim.blocs=[];save();simRender()}};
+simRender();
+$('#key').addEventListener('input',()=>{try{localStorage.setItem('aakey',$('#key').value.trim())}catch(e){}});
+$('#key').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('#ksv').click()}});
+$('#ksv').onclick=()=>{const k=$('#key').value.trim();if(!k){$('#kst').textContent='Colle d’abord ta clé dans la case « Clé OpenRouteService ».';return}
+  try{localStorage.setItem('aakey',k);$('#kst').textContent='✔ Clé enregistrée sur cet appareil ('+k.length+' caractères).'}
+  catch(e){$('#kst').textContent='Enregistrement impossible ici (navigation privée ?). La clé reste utilisable tant que la page est ouverte.'}};
+$('#kts').onclick=async()=>{const k=$('#key').value.trim();if(!k){$('#kst').textContent='Colle d’abord ta clé dans la case « Clé OpenRouteService ».';return}
+  $('#kst').textContent='Test en cours…';
+  try{await jget('https://api.openrouteservice.org/v2/directions/driving-hgv/geojson',{method:'POST',headers:{'Authorization':k,'Content-Type':'application/json'},body:JSON.stringify({coordinates:[[4.8357,45.764],[4.86,45.78]],instructions:false})});
+    $('#kst').textContent='✔ Clé valide : le service répond.'}catch(e){$('#kst').textContent='✗ '+e.message}};
+render1();renderStops();setInterval(render1,60000);
+if('serviceWorker' in navigator&&location.protocol==='https:'&&!window.AndroidBT)navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body>
+</html>

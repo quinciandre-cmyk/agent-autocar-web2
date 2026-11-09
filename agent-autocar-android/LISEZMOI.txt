@@ -1,0 +1,32 @@
+APPLICATION ANDROID « AGENT AUTOCAR » – avec Bluetooth du tachygraphe (test expérimental)
+
+CE QUE C'EST
+L'application web (temps de conduite, itinéraire, carte) dans une coque Android qui sait parler
+au tachygraphe en Bluetooth classique (profil série SPP, interface ITS – règlement UE 2016/799).
+Onglet « Tachygraphe » : appareils appairés, connexion, demande de données, PIN, journal brut.
+Elle n'interprète pas encore les valeurs : on récupère d'abord de vraies trames.
+
+AVANT TOUT, SUR LE TACHYGRAPHE (à vérifier)
+- Cherche dans son menu une option Bluetooth / ITS : elle n'existe pas sur tous les modèles.
+- Le PIN s'affiche sur l'écran du tachygraphe. Appaire le tachygraphe dans Réglages > Bluetooth du S23.
+- Un PIN faux compte comme un échec : 3 de suite = blocage 30 s ; 15 = blocage définitif (code PUC
+  du constructeur). L'application limite à 2 essais par lancement.
+
+FABRIQUER L'APPLICATION (gratuit, sans Android Studio) – à faire sur ton ordinateur
+1. Crée un compte gratuit sur github.com, puis « New repository » (privé si tu veux).
+2. « uploading an existing file » : glisse tout le contenu de ce dossier (settings.gradle.kts,
+   build.gradle.kts, gradle.properties, dossier app).
+3. « Add file > Create new file », nom exact :  .github/workflows/build.yml
+   Colle le contenu du fichier github-workflow-build.yml, puis « Commit ».
+4. Onglet « Actions » : la fabrication démarre seule (ou « Build APK > Run workflow »). ~5 à 10 min.
+5. Quand c'est vert : clique sur l'exécution, en bas « agent-autocar-apk » : télécharge le zip,
+   il contient app-debug.apk.
+6. Envoie l'APK sur le S23, ouvre-le, autorise « installer des applications inconnues », puis
+   « Installer quand même » si Play Protect avertit (application non publiée).
+
+SI LA FABRICATION ÉCHOUE (croix rouge) : ouvre l'étape en erreur et envoie-moi les dernières lignes.
+Ce projet n'a pas pu être compilé là où il a été écrit : une correction peut être nécessaire.
+
+CLÉ OPENROUTESERVICE DÉJÀ DANS L'APPLICATION
+Avant d'envoyer les fichiers sur GitHub, ouvre  app/src/main/assets/cle.js  et colle ta clé entre
+les guillemets. Garde le dépôt GitHub privé : la clé sera dans l'application que tu fabriques.
